@@ -1,0 +1,1 @@
+var container=document.querySelector(".wrapper"),msnry=new Masonry(container,{columnWidth:container.querySelector(".grid-sizer"),itemSelector:".post",gutter:0});$(window).load(function(){msnry.layout()});var myScroll=new IScroll("#info-wrapper",{mouseWheel:!0,scrollbars:!0});
