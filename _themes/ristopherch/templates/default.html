@@ -1,0 +1,33 @@
+<h1>Portfolio</h1>
+
+
+
+<div class="wrapper">
+
+    <div class="grid-sizer"></div>
+
+
+
+
+{{ entries:listing folder="writing" }}
+
+
+    <div class="post {{ switch between="one|two|three|four|five" }} {{ tags_list }}">
+        <div class="content">  
+                <a href="{{ url }}">{{ title }}</a>
+                
+
+        </div>  
+        <div class="push"></div>  
+    </div>  
+
+
+{{ /entries:listing }}
+
+
+
+
+
+
+
+</div>
