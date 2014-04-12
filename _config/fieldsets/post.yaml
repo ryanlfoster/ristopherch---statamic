@@ -6,15 +6,40 @@ fields:
     type: tags
   tags:
     display: Tags
-    required: true
+    required: false
     default:
     type: tags
   content:
     type: redactor
+    image_dir: assets/img/
   header_image:
     display: Header Image
     type: file
     allowed: [png, gif, jpg, jpeg]
     destination: assets/img/blog   # make sure your folder is writable
+  posttype:
+    display: Post Type
+    type: radio
+    options:
+      - text
+      - image
+  modulecolor:
+    display: Module Colour
+    type: radio
+    options:
+      - light
+      - light-trans
+      - dark
+      - dark-trans
+      - sunbather
+  modulesize:
+    display: Module Size
+    type: select
+    options:
+      - m1
+      - m2
+      - m3
+      - m4
+      - m5
 
 

@@ -11,38 +11,38 @@ autoresize: true
 
 # Order and choose your buttons. Use '|' for a vertical seperator
 buttons:
- - formatting
- - '|'
- - bold
- - italic
- - deleted
- - '|'
- - unorderedlist
- - orderedlist
- - outdent
- - indent
- - '|'
+ #- formatting
+ #- '|'
+ #- bold
+ #- italic
+ #- deleted
+ #- '|'
+ #- unorderedlist
+ #- orderedlist
+ #- outdent
+ #- indent
+ #- '|'
  - image
- - video
- - table
+ #- video
+ #- table
  - link
- - horizontalrule
- - '|'
- - fontcolor
- - backcolor
- - '|'
- - alignleft
- - aligncenter
- - alignright
- - justify
- - '|'
+ #- horizontalrule
+ #- '|'
+ #- fontcolor
+ #- backcolor
+ #- '|'
+ #- alignleft
+ #- aligncenter
+ #- alignright
+ #- justify
+ #- '|'
  - html
 
 # Turn on/off cleanup on paste
 cleanup: true
 
 # Automatically replace divs with paragraphs
-convertDivs: true
+convertDivs: false
 
 # Automatically turn image links into <img> tags
 convertImageLinks: false
@@ -83,7 +83,7 @@ plugins:
 minHeight: 150
 
 # Turn on/off paragraph formatting
-paragraphy: true
+paragraphy: false
 
 # Turn on/off keypress shortcuts
 shortcuts: true

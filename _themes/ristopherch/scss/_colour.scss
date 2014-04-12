@@ -1,7 +1,24 @@
+//Define colours
+
 $white:#FFFFFF;
 $black:#000000;
 
 $light:#faf7f7;
-$dark:#0c0c11;
+$dark:#333333;
 
-$brand:#53148d;
+$special:#DB4B4E;
+
+$grey:#BCA6A6;
+
+
+//Apply colours
+
+.white{color:$white;}
+.black{color:$black;}
+
+// .light{color:$light;}
+// .dark{color:$dark;}
+
+.special{color:$special;}
+
+.grey{color:$grey;}

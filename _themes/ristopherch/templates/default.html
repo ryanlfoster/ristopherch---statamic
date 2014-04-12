@@ -1,5 +1,14 @@
-<h1>Portfolio</h1>
-
+<div class="nav-bg">
+	<div class="nav"
+	    data-start="transform:perspective(90em) rotateX(0deg); background-color:rgb(255,255,255);"
+	    data-135-start="transform:perspective(90em) rotateX(90deg); background-color:rgb(200,200,200);" 
+	    data-anchor-target=".nav"
+	>
+	<div class="nav-main">
+		<a href="#"><h6>Christopher</h6></a>
+	</div>
+	</div>
+</div>
 
 
 <div class="wrapper">
@@ -9,20 +18,54 @@
 
 
 
-{{ entries:listing folder="writing" }}
+{{ entries:listing folder="work" paginate="true" limit="3"}}
 
 
-    <div class="post {{ switch between="one|two|three|four|five" }} {{ tags_list }}">
-        <div class="content">  
-                <a href="{{ url }}">{{ title }}</a>
-                
+    <div class="post {{ modulesize }} {{ modulecolor }} {{ posttype }}">
+
+    	
+
+        <div class="content" style="background-image:url('{{ header_image }}')">
+
+        	<a href="{{ url }}">
+
+			<div class="post-info">
+                <div class="post-title">
+                	{{ title|truncate:40}}
+                	{{ if categories }}
+	                	<p><span class="tight-spacing">–––––</span>{{ categories_list }}</p>  
+                	{{ endif }}
+                </div>
+        	</div>  
+
+        	</a>  
+
 
         </div>  
+
+       
         <div class="push"></div>  
+
+		
+        
     </div>  
 
 
 {{ /entries:listing }}
+
+
+		{{ entries:pagination folder="work" limit="2" }}
+			{{ if next_page || previous_page }}
+				<div class="pagination clearfix">
+					{{ if next_page }}
+						<div class="older"><a href="{{ next_page }}">Older Posts</a></div>
+					{{ endif }}
+					{{ if previous_page }}
+						<div class="newer"><a href="{{ previous_page }}">Newer Posts</a></div>
+					{{ endif }}
+				</div>
+			{{ endif }}
+		{{ /entries:pagination }}
 
 
 
@@ -31,3 +74,5 @@
 
 
 </div>
+
+

@@ -1,0 +1,118 @@
+<div class="nav-bg">
+	<div class="nav"
+	    data-start="transform:perspective(90em) rotateX(0deg); opacity:1;"
+	    data-135-start="transform:perspective(90em) rotateX(90deg); opacity:0.75;" 
+	    data-anchor-target=".nav"
+	>
+	<div class="nav-main">
+		<a href="#"><h6>Christopher</h6></a>
+	</div>
+	</div>
+</div>
+
+<div class="project-header-bg">
+
+	<div class="project-header"
+		    data-60p-top="transform:perspective(90em) rotateX(0deg); opacity:1;"
+		    data-top="transform:perspective(90em) rotateX(90deg); opacity:0.75;" 
+		    data-anchor-target=".project-wrapper-bg"
+	>
+
+
+
+			<div class="project-header-title">
+				<h4>{{ title }}</h4>
+				<p>{{ categories_list }}</p>
+			</div>
+
+
+	</div>
+</div>
+
+
+
+<div class="project-wrapper-bg">
+	<div class="project-wrapper"
+		    data-60p-top="transform:perspective(90em) rotateX(0deg); background-color:rgb(255,255,255);"
+		    data--40p-top="transform:perspective(90em) rotateX(70deg); background-color:rgb(200,200,200);" 
+		    data-anchor-target=".wrapper"
+	>
+
+		{{ content }}
+
+	</div>
+</div>
+
+
+
+
+
+
+
+<!-- Load Tiles -->
+
+<div class="wrapper">
+
+	<div class="grid-sizer"></div>
+
+
+{{ entries:listing folder="work" paginate="true" limit="3"}}
+
+
+    <div class="post {{ modulesize }} {{ modulecolor }} {{ posttype }}">
+
+    	
+
+        <div class="content" style="background-image:url('{{ header_image }}')">
+
+        	<a href="{{ url }}">
+
+			<div class="post-info">
+                <div class="post-title">
+                	{{ title|truncate:40}}
+                	{{ if categories }}
+	                	<p><span class="tight-spacing">–––––</span>{{ categories_list }}</p>  
+                	{{ endif }}
+                </div>
+        	</div>  
+
+        	</a>  
+
+
+        </div>  
+
+       
+        <div class="push"></div>  
+
+		
+        
+    </div>  
+
+
+{{ /entries:listing }}
+
+
+		{{ entries:pagination folder="work" limit="2" }}
+			{{ if next_page || previous_page }}
+				<div class="pagination clearfix">
+					{{ if next_page }}
+						<div class="older"><a href="{{ next_page }}">Older Posts</a></div>
+					{{ endif }}
+					{{ if previous_page }}
+						<div class="newer"><a href="{{ previous_page }}">Newer Posts</a></div>
+					{{ endif }}
+				</div>
+			{{ endif }}
+		{{ /entries:pagination }}
+
+
+
+
+
+
+
+</div>
+
+
+
+</div>

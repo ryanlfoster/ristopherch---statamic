@@ -11,7 +11,31 @@ $( window ).load(function() {
   msnry.layout();
 });
 
-var myScroll = new IScroll('#info-wrapper', {
-    mouseWheel: true,
-    scrollbars: true
+
+$('.wrapper').infinitescroll({
+	navSelector  	: ".pagination",
+	nextSelector 	: ".pagination .older a:first",
+	itemSelector 	: ".post",
+
+	  loading: {
+}
+},
+
+function( newElements ) {
+	var $newElems = $( newElements );
+	msnry.appended( $newElems );
+	msnry.layout();		
+}
+
+);
+
+
+var s = skrollr.init({
+forceHeight: false
 });
+
+// var myScroll = new IScroll('#info-wrapper', {
+//     mouseWheel: true,
+//     scrollbars: true
+// });
+

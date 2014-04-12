@@ -34,12 +34,12 @@ textarea {
  */
 
 ::-moz-selection {
-    background: $brand;
+    background: $special;
     text-shadow: none;
 }
 
 ::selection {
-    background: $brand;
+    background: $special;
     text-shadow: none;
 }
 
@@ -121,13 +121,28 @@ html, body{
 
 
 /* ==========================================================================
+   Globals
+   ========================================================================== */
+
+html, body {
+  height:100%;
+}
+
+#skrollr-body{}
+
+span.tight-spacing{
+  letter-spacing: -2px;
+  padding-right:10px;
+}
+
+
+/* ==========================================================================
    Wrapper
    ========================================================================== */
 
 @include bp(xl) {
     .wrapper{
-        width:1260px;
-        margin:0 auto;
+        width:100%;
     }
 }
 
@@ -149,12 +164,15 @@ html, body{
     }
 }
 
+.wrapper{
+}
+
 /* ==========================================================================
    Grid Modules
    ========================================================================== */
 
 /* 4 columns by default */
-.grid-sizer { width: 25%; }
+.grid-sizer { width:25%; }
 
 .post{
     position:relative;
@@ -203,9 +221,122 @@ html, body{
   display: block; 
 }
 
+@include bp(m) {
+  .m4 > .push,
+  .m5 > .push,
+  {
+    padding-top: 65%;
+    /*proportion*/
+    display: block; 
+  }
+}
+
+
+@include bp(s) {
+  .m4 > .push,
+  .m5 > .push,
+  {
+    padding-top: 65%;
+    /*proportion*/
+    display: block; 
+  }
+}
+
+
+
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+
+.nav-bg{
+  width:100%;
+  height:135px;
+  background-color:$black;
+}
+
+.nav{
+  width:100%;
+  height:100%;
+  background-color:$white;
+  display: table;
+
+  -webkit-transform-origin:center bottom;
+  transform-origin:center bottom;
+  -ms-transform-origin:center bottom;
+
+
+
+  // transform: rotate(5deg);
+  // transform-origin:center bottom;
+  // -ms-transform: rotate(5deg); /* IE 9 */
+  // -ms-transform-origin:center bottom; /* IE 9 */
+  // -webkit-transform: rotateX(45deg); /* Chrome, Safari, Opera */
+  // transform-style: preserve-3d;
+  // transition: transform 1s;
+
+  .nav-main{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  a:link {color: inherit;}
+  a:visited {color: inherit;}
+  a:hover {color: inherit; text-decoration:none;}
+  a:active {color: inherit;}
+}
+
+
+// .nav-main{
+//   -webkit-transition: -webkit-transform 0.25s ease-in; /* Changed here */ 
+//   -moz-transition: -moz-transform 0.25s ease-in;
+//   -o-transition: -o-transform 0.25s ease-in;
+//   transition: transform 0.25s ease-in;
+// }
+
+// .nav-main:hover{
+// -ms-transform: translate(0px,-5px); /* IE 9 */
+// -webkit-transform: translate(0px,-5px); /* Chrome, Safari, Opera */
+// transform: translate(0px,-5px);
+// }
+
+
+
+
+/* ==========================================================================
+   Tiles
+   ========================================================================== */
+
+.post{
+  a:link {color: inherit;}
+  a:visited {color: inherit;}
+  a:hover {color: inherit; text-decoration:none;}
+  a:active {color: inherit;}
+}
+
+
 .content{
     position:absolute;
-    padding: 10px;
+    margin: 0px;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size:cover;
+}
+
+//Module padding
+
+.post-info
+{ 
+  padding: 20px; 
+}
+
+// Post info
+
+.post-info{
+    position:absolute;
     margin: 0px;
     top:0px;
     left:0px;
@@ -214,27 +345,204 @@ html, body{
     overflow: hidden;
 }
 
+.text > .content > a > .post-info{
+  @include x-opacity(1);
+}
+
+.image > .content > a > .post-info{
+  @include x-opacity(0);
+  @include transition(opacity);
+}
+
+.image > .content:hover > a > .post-info{
+  @include x-opacity(1);
+}
+
+
+.pagination{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+}
+
+//Post colours
+
+.light > .content > .post-info{
+  background-color:$white;
+  color:$black;
+}
+
+.light-trans > .content > .post-info{
+  color:$black;
+}
+
+.dark > .content > .post-info{
+  background-color:$black;
+  color:$white;
+}
+
+.dark-trans > .content > .post-info{
+  color:$white;
+}
+
+
+//Post title text size
+
+.m1 > .content > a > .post-info > .post-title{ @include h5 }
+.m2 > .content > a > .post-info > .post-title{ @include h6 }
+.m3 > .content > a > .post-info > .post-title{ @include h6 }
+.m4 > .content > a > .post-info > .post-title{ @include h6 }
+.m5 > .content > a > .post-info > .post-title{ @include h6 }
+
+@include bp(m) {
+  .m1 > .content > a > .post-info > .post-title,
+  .m2 > .content > a > .post-info > .post-title,
+  .m3 > .content > a > .post-info > .post-title,
+  .m4 > .content > a > .post-info > .post-title,
+  .m5 > .content > a > .post-info > .post-title,
+  { 
+    @include h6 
+  }
+}
+
+@include bp(s) {
+  .m1 > .content > a > .post-info > .post-title,
+  .m2 > .content > a > .post-info > .post-title,
+  .m3 > .content > a > .post-info > .post-title,
+  .m4 > .content > a > .post-info > .post-title,
+  .m5 > .content > a > .post-info > .post-title,
+  { 
+    @include h6 
+  }
+}
+
+//Post title container size
+
+.post-title{
+  width:75%;
+}
+
+@include bp(m) {
+  .post-title{
+    width:75%;
+  }
+}
+
+@include bp(s) {
+  .post-title{
+    width:100%;
+  }
+}
+
+
+.post-title{
+  -webkit-transition: -webkit-transform 0.15s ease-in; /* Changed here */ 
+  -moz-transition: -moz-transform 0.15s ease-in;
+  -o-transition: -o-transform 0.15s ease-in;
+  transition: transform 0.15s ease-in;
+}
+
+.post:hover > .content > .post-info > .post-title{
+-ms-transform: translate(0px,-5px); /* IE 9 */
+-webkit-transform: translate(0px,-5px); /* Chrome, Safari, Opera */
+transform: translate(0px,-5px);
+}
 
 
 
+/* ==========================================================================
+   Project Page
+   ========================================================================== */
 
+.project-header-bg{
+  background-color:$black;
+  height:100%;
+  width:100%;
+}
 
+.project-header{
+  background-color:$grey;
+  height:100%;
+  width:100%;
+  display: table;
+  // -webkit-transform: perspective(50em) rotateX(50deg);
+  -webkit-transform-origin:center bottom;
+  transform-origin:center bottom;
+  -ms-transform-origin:center bottom;
 
-.one {
-  background-color: #222; }
+  .project-header-title{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color:$white;
+  }
+}
 
-.two {
-  background-color: #333; }
+.project-wrapper-bg{
+  background-color:$black;
+}
 
-.three {
-  background-color: #444; }
+.project-wrapper{
+  padding-top:40px;
+  padding-bottom:80px;
+  -webkit-transform-origin:center bottom; /* Chrome, Safari, Opera */
+  background-color:$white;
 
-.four {
-  background-color: #555; }
+  .container{
+  }
 
-.five {
-  background-color: #666; }
+  .row{
+  }
 
+  h5{
+    padding-bottom:20px;
+  }
+
+  p{
+    color:$dark;
+    padding-bottom:20px;
+  }
+
+  img{
+    width:100%;
+    margin:20px 0 40px 0;
+  }
+
+  a {
+    color: inherit;
+    @include transition(color);
+    @include transition(border);
+  }
+
+  a:link {color: inherit; border-bottom:1px solid $dark;}
+  a:visited {color: inherit;}
+  a:hover {color: $special; text-decoration:none; border-bottom:1px solid $special;}
+  a:active {color: inherit;}
+}
+
+.big-text{
+  border-top:1px solid $black;
+  border-bottom:1px solid $black;
+  @include h5;
+  padding:10% 15% 10% 15%;
+  margin:20px 0 40px 0;
+  text-align:center;
+}
+
+.bt-black{
+  background-color:$black;
+  color:$white;
+}
+
+.bt-white{
+  background-color:$white;
+  color:$black;
+}
+
+.big-image{
+  width:100%;
+}
 
 
 /* ==========================================================================

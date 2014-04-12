@@ -19,3 +19,21 @@
 	@media #{$bp-s}  { @content; }
 	}
 }
+
+// Crossbrowser Opacity
+
+@mixin x-opacity($opacity) {
+	opacity:$opacity;
+	-webkit-opacity:$opacity;
+	-moz-opacity:$opacity;
+	-filter:alpha(opacity=$opacity*100);
+}
+
+// Transitions
+
+@mixin transition($value) {
+ 	transition:$value .5s ease-in-out;
+	-moz-transition:$value .5s ease-in-out;
+	-webkit-transition:$value .5s ease-in-out;
+	-o-transition:$value .5s ease-in-out;
+}
