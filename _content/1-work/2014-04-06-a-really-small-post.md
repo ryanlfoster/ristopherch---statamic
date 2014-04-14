@@ -9,7 +9,9 @@ modulesize: m3
 posttype: image
 categories:
   - thumb
+header_theme_colour: black
+category: Drawing
 ---
 <p>
-	        dfgfsfds fs df
+	          dfgfsfds fs df
 </p>

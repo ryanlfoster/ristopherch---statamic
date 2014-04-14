@@ -1,22 +1,28 @@
 fields:
-  categories:
+  category:
     display: Categories
     required: false
-    default:
-    type: tags
-  tags:
-    display: Tags
-    required: false
-    default:
-    type: tags
-  content:
-    type: redactor
-    image_dir: assets/img/
+    type: select
+    options:
+      - Writing
+      - Idea
+      - Drawing
+  #tags:
+    #display: Tags
+    #required: false
+    #default:
+    #type: tags
   header_image:
     display: Header Image
     type: file
     allowed: [png, gif, jpg, jpeg]
-    destination: assets/img/blog   # make sure your folder is writable
+    destination: assets/img/blog
+  header_theme_colour:
+    display: Header Text Colour
+    type: radio
+    options:
+      - black
+      - white
   posttype:
     display: Post Type
     type: radio
@@ -41,5 +47,6 @@ fields:
       - m3
       - m4
       - m5
-
-
+  content:
+    type: redactor
+    image_dir: assets/img/

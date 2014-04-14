@@ -32,8 +32,14 @@
 // Transitions
 
 @mixin transition($value) {
- 	transition:$value .5s ease-in-out;
-	-moz-transition:$value .5s ease-in-out;
-	-webkit-transition:$value .5s ease-in-out;
-	-o-transition:$value .5s ease-in-out;
+ 	transition:$value .25s ease-in-out;
+	-moz-transition:$value .25s ease-in-out;
+	-webkit-transition:$value .25s ease-in-out;
+	-o-transition:$value .25s ease-in-out;
+}
+
+@mixin rotate($value){
+	transform:rotate($value);
+	-ms-transform:rotate($value);
+	-webkit-transform:rotate($value);
 }

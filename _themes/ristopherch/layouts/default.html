@@ -7,33 +7,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{ theme:css src="normalize" tag="true"}}
         {{ theme:css src="bootstrap" tag="true"}}
+        {{ theme:css src="icons" tag="true"}}
         {{ theme:css tag="true"}}
+
+        <link href='http://fonts.googleapis.com/css?family=Playfair+Display:900' rel='stylesheet' type='text/css'>
         {{ theme:js src="vendor/modernizr-2.6.2.min" tag="true"}}
+
     </head>
     <body>
-<!-- <div id="info-wrapper">
-<h3>U Wot m8</h3>
-</div>
+        {{ theme:partial src="info-panel" }}
+
+<!--         <div id="skrollr-body">
+ -->            {{ layout_content }}
+<!--         </div>
  -->
-
-
-
-    {{ layout_content }}
-
-
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
 
         {{ theme:js src="vendor/masonry.pkgd.min" tag="true"}}
         {{ theme:js src="vendor/iscroll" tag="true"}}
         {{ theme:js src="vendor/skrollr" tag="true"}}
+        {{ theme:js src="vendor/skrollr.menu.min" tag="true"}}
         {{ theme:js src="vendor/jquery.infinitescroll.min" tag="true"}}
-
         {{ theme:js src="main" tag="true"}}
 
 
 
-        
-        </div>
     </body>
 </html>

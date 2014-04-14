@@ -1,0 +1,56 @@
+<div class="wrapper">
+
+    <div class="grid-sizer"></div>
+
+		{{ entries:listing folder="work" conditions="url:!{url}" paginate="true" limit="2"}}
+
+{{ if no_results }}
+{{ else }}
+
+		    <div class="post {{ modulesize }} {{ modulecolor }} {{ posttype }}">
+
+		        <div class="content" style="background-image:url('{{ header_image }}')">
+
+		        	<a href="{{ url }}">
+						<div class="post-info">
+			                <div class="post-title">
+			                	{{ title|truncate:40}}
+			                	{{ if category }}
+				                	<p><span class="tight-spacing">–––––</span>{{ category }}</p>  
+			                	{{ endif }}
+
+			                </div>
+			        	</div>  
+		        	</a>  
+
+		        </div>  
+
+		        <div class="push"></div>  
+		    </div>  
+
+{{ endif }}
+
+		{{ /entries:listing }}
+
+
+		{{ entries:pagination folder="work" limit="2" }}
+			{{ if next_page || previous_page }}
+				<div class="pagination clearfix">
+					{{ if next_page }}
+						<div class="older"><a href="{{ next_page }}">Older Posts</a></div>
+					{{ endif }}
+
+					{{ if previous_page }}
+						<div class="newer"><a href="{{ previous_page }}">Newer Posts</a></div>
+					{{ endif }}
+				</div>
+			{{ endif }}
+		{{ /entries:pagination }}
+
+
+
+
+
+
+
+</div>

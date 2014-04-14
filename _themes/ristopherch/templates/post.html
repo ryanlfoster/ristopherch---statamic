@@ -5,25 +5,77 @@
 	    data-anchor-target=".nav"
 	>
 	<div class="nav-main">
-		<a href="#"><h6>Christopher</h6></a>
+		<a href="{{ path src="/" }}"><p>Back to projects</p></a>
 	</div>
 	</div>
 </div>
+
 
 <div class="project-header-bg">
 
-	<div class="project-header"
-		    data-60p-top="transform:perspective(90em) rotateX(0deg); opacity:1;"
-		    data-top="transform:perspective(90em) rotateX(90deg); opacity:0.75;" 
-		    data-anchor-target=".project-wrapper-bg"
+
+<!--header content layer-->
+
+	<div class="project-header" style="background-image:url('{{ header_image }}')"
+		data-start="background-position: 0 0%;"
+		data-100p-start="background-position: 0 100%;" 
+		data-anchor-target=".project-header"
 	>
 
 
+	<!--header nav layer-->
 
-			<div class="project-header-title">
-				<h4>{{ title }}</h4>
-				<p>{{ categories_list }}</p>
+
+	<div class="project-header-nav">
+		<div class="project-header-nav-prev {{ header_theme_colour }}">
+			{{ if prev }}
+				<a href="{{ prev }}">
+					<div class="icon-icon-left"
+					data--10p-top="margin-left:30%;opacity:1"
+	    			data--30p-top="margin-left:10%;opacity:0" 
+	    			data-anchor-target=".project-header"
+	    			></div>
+				</a>
+			{{ endif }}
+		</div>
+
+		<div class="project-header-nav-next {{ header_theme_colour }}">
+			{{ if next }}
+				<a href="{{ next }}">
+					<div class="icon-icon-right"
+					data--10p-top="margin-right:30%;opacity:1"
+	    			data--30p-top="margin-right:10%;opacity:0" 
+	    			data-anchor-target=".project-header"
+	    			></div>
+				</a>
+			{{ endif }}
+		</div>
+	</div>
+
+
+
+
+			<div class="project-header-title-container">
+				<div class="project-header-title {{ header_theme_colour }}"
+					data--10p-top="opacity:1;"
+	    			data--30p-top="opacity:0;" 
+	    			data-anchor-target=".project-header"
+				>
+					<h4>{{ title }}</h4>
+					<hr style="background-color:{{ header_theme_colour }}"/>
+					<p>{{ category }}</p>
+
+					<a href="#content">
+						<div class="icon-icon-down"
+						data-135-start="transform:translate(0,20px);"
+		    			data-60p-start="transform:translate(0,150%);" 
+		    			data-anchor-target=".project-header"
+		    			></div>
+		    		</a>
+				</div>
 			</div>
+
+
 
 
 	</div>
@@ -31,12 +83,11 @@
 
 
 
-<div class="project-wrapper-bg">
-	<div class="project-wrapper"
-		    data-60p-top="transform:perspective(90em) rotateX(0deg); background-color:rgb(255,255,255);"
-		    data--40p-top="transform:perspective(90em) rotateX(70deg); background-color:rgb(200,200,200);" 
-		    data-anchor-target=".wrapper"
-	>
+<!--content-->
+
+<div class="project-wrapper-bg" id="content">
+
+	<div class="project-wrapper">
 
 		{{ content }}
 
@@ -44,75 +95,5 @@
 </div>
 
 
+{{ theme:partial src="project-tiles" }}
 
-
-
-
-
-<!-- Load Tiles -->
-
-<div class="wrapper">
-
-	<div class="grid-sizer"></div>
-
-
-{{ entries:listing folder="work" paginate="true" limit="3"}}
-
-
-    <div class="post {{ modulesize }} {{ modulecolor }} {{ posttype }}">
-
-    	
-
-        <div class="content" style="background-image:url('{{ header_image }}')">
-
-        	<a href="{{ url }}">
-
-			<div class="post-info">
-                <div class="post-title">
-                	{{ title|truncate:40}}
-                	{{ if categories }}
-	                	<p><span class="tight-spacing">–––––</span>{{ categories_list }}</p>  
-                	{{ endif }}
-                </div>
-        	</div>  
-
-        	</a>  
-
-
-        </div>  
-
-       
-        <div class="push"></div>  
-
-		
-        
-    </div>  
-
-
-{{ /entries:listing }}
-
-
-		{{ entries:pagination folder="work" limit="2" }}
-			{{ if next_page || previous_page }}
-				<div class="pagination clearfix">
-					{{ if next_page }}
-						<div class="older"><a href="{{ next_page }}">Older Posts</a></div>
-					{{ endif }}
-					{{ if previous_page }}
-						<div class="newer"><a href="{{ previous_page }}">Newer Posts</a></div>
-					{{ endif }}
-				</div>
-			{{ endif }}
-		{{ /entries:pagination }}
-
-
-
-
-
-
-
-</div>
-
-
-
-</div>
