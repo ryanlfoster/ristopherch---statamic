@@ -1128,19 +1128,15 @@ $admin_app->get('/publish', function() use ($admin_app) {
   unset($data['fields']['status']);
 
   // Content
-  $content_defaults = array('content' => array(
-    'display'      => array_get($data, 'fields:content:display', 'Content'),
-    'type'         => array_get($data, 'fields:content:type', 'markitup'),
-    'field_config' => array_get($data, 'fields:content', array()),
-    'required'     => (array_get($data, 'fields:content:required', false) === true) ? 'required' : '',
-    'instructions' => array_get($data, 'fields:content:instructions', ''),
-    'required'     => array_get($data, 'fields:content:required', false),
-    'input_key'    => ''
-  ));
+  $content_defaults = array_get($data, 'fields:content', array());
+  $content_defaults['display']      = array_get($data, 'fields:content:display', 'Content');
+  $content_defaults['type']         = array_get($data, 'fields:content:type', 'markitup');
+  $content_defaults['required']     = (array_get($data, 'fields:content:required', false) === true) ? 'required' : '';
+  $content_defaults['instructions'] = array_get($data, 'fields:content:instructions', '');
+  $content_defaults['required']     = array_get($data, 'fields:content:required', false);
+  $content_defaults['input_key']    = '';
 
-
-
-  $data['fields'] = array_merge(array_get($data, 'fields', array()), $content_defaults);
+  array_set($data, 'fields:content', $content_defaults);
 
   $data['full_slug'] = Path::tidy($data['full_slug']);
 

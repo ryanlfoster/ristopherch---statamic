@@ -92,7 +92,7 @@ class Parse
         $parser->cumulativeNoparse(TRUE);
         $allow_php = Config::get('_allow_php', false);
 
-        return $parser->parse($html, ($context + $variables), $callback, $allow_php);
+        return $parser->parse($html, ($variables + $context), $callback, $allow_php);
     }
 
 
@@ -117,33 +117,33 @@ class Parse
      * @param string  $content  Template for replacing
      * @param array  $data  Array of arrays containing values
      * @param bool  $supplement  Supplement each loop with contextual information?
+     * @param array  $context  Contextual data to add into loop
      * @return string
      */
-    public static function tagLoop($content, $data, $supplement = false)
+    public static function tagLoop($content, $data, $supplement = false, $context=array())
     {
         $output = '';
 
         if ($supplement) {
-
             // loop through each record of $data
             $i = 1;
             $count = count($data);
-
+            
             foreach ($data as $item) {
                 $item['first']         = ($i === 1);
                 $item['last']          = ($i === $count);
                 $item['index']         = $i;
                 $item['zero_index']    = $i - 1;
                 $item['total_results'] = $count;
-
-                $output .= Parse::template($content, $item);
+                
+                $output .= Parse::contextualTemplate($content, $item, $context);
 
                 $i++;
             }
 
         } else {
             foreach ($data as $item) {
-                $output .= Parse::template($content, $item);
+                $output .= Parse::contextualTemplate($content, $item, $context, array('statamic_view', 'callback'));
             }
         }
 

@@ -1,36 +1,25 @@
-<div class="nav-bg">
-	<div class="nav"
-	    data-start="transform:perspective(90em) rotateX(0deg); opacity:1;"
-	    data-135-start="transform:perspective(90em) rotateX(90deg); opacity:0.75;" 
-	    data-anchor-target=".nav"
-	>
-	<div class="nav-main">
-		<a href="{{ path src="/" }}"><p>Back to projects</p></a>
-	</div>
-	</div>
-</div>
-
-
-<div class="project-header-bg">
+<div class="project-header-bg" style="background-image:url('{{ header_image }}')"
+		data-start="background-position: 0 0%;"
+		data-100p-start="background-position: 0 100%;" 
+		data-anchor-target=".project-header"
+>
 
 
 <!--header content layer-->
 
-	<div class="project-header" style="background-image:url('{{ header_image }}')"
-		data-start="background-position: 0 0%;"
-		data-100p-start="background-position: 0 100%;" 
-		data-anchor-target=".project-header"
-	>
+	<div class="project-header" style="background-color:{{ header_bg_colour }};">
+
+
 
 
 	<!--header nav layer-->
 
 
 	<div class="project-header-nav">
-		<div class="project-header-nav-prev {{ header_theme_colour }}">
+		<div class="project-header-nav-prev">
 			{{ if prev }}
 				<a href="{{ prev }}">
-					<div class="icon-icon-left"
+					<div class="icon-icon-left" style="color:{{ header_text_colour }};"
 					data--10p-top="margin-left:30%;opacity:1"
 	    			data--30p-top="margin-left:10%;opacity:0" 
 	    			data-anchor-target=".project-header"
@@ -39,10 +28,10 @@
 			{{ endif }}
 		</div>
 
-		<div class="project-header-nav-next {{ header_theme_colour }}">
+		<div class="project-header-nav-next">
 			{{ if next }}
 				<a href="{{ next }}">
-					<div class="icon-icon-right"
+					<div class="icon-icon-right" style="color:{{ header_text_colour }};"
 					data--10p-top="margin-right:30%;opacity:1"
 	    			data--30p-top="margin-right:10%;opacity:0" 
 	    			data-anchor-target=".project-header"
@@ -56,22 +45,30 @@
 
 
 			<div class="project-header-title-container">
-				<div class="project-header-title {{ header_theme_colour }}"
+				<div class="project-header-title" style="color:{{ header_text_colour }};"
 					data--10p-top="opacity:1;"
 	    			data--30p-top="opacity:0;" 
 	    			data-anchor-target=".project-header"
 				>
-					<h4>{{ title }}</h4>
-					<hr style="background-color:{{ header_theme_colour }}"/>
-					<p>{{ category }}</p>
+					<h1>{{ title }}</h1>
+					{{ if subtitle }}
+					<hr style="background-color:{{ header_text_colour }}"/>
+					<p>{{ subtitle }}</p>
+					{{ endif }}
 
-					<a href="#content">
-						<div class="icon-icon-down"
-						data-135-start="transform:translate(0,20px);"
-		    			data-60p-start="transform:translate(0,150%);" 
-		    			data-anchor-target=".project-header"
-		    			></div>
-		    		</a>
+
+
+					<div class="project-wrapper-up">
+						<a href="{{ path src="/" }}">
+							<div class="back-to-projects">Back to index</div>
+						</a>
+		    		</div>	
+
+
+
+					<!-- <div class="project-wrapper-down">
+						<div class="icon-icon-down"></div>
+		    		</div>	 -->
 				</div>
 			</div>
 
@@ -82,10 +79,12 @@
 </div>
 
 
+<div class="project-header-buffer"></div>
+
 
 <!--content-->
 
-<div class="project-wrapper-bg" id="content">
+<div class="project-wrapper-bg">
 
 	<div class="project-wrapper">
 

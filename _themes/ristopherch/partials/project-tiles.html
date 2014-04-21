@@ -2,50 +2,63 @@
 
     <div class="grid-sizer"></div>
 
-		{{ entries:listing folder="work" conditions="url:!{url}" paginate="true" limit="2"}}
+		{{ entries:listing folder="work" sort_by="random" conditions="url:!{url}" paginate="true" limit="30"}}
 
 {{ if no_results }}
 {{ else }}
 
 		    <div class="post {{ modulesize }} {{ modulecolor }} {{ posttype }}">
 
-		        <div class="content" style="background-image:url('{{ header_image }}')">
+		        <div class="content" style="background-image:url('{{ thumbnail }}')">
 
 		        	<a href="{{ url }}">
-						<div class="post-info">
-			                <div class="post-title">
-			                	{{ title|truncate:40}}
-			                	{{ if category }}
-				                	<p><span class="tight-spacing">–––––</span>{{ category }}</p>  
-			                	{{ endif }}
+						<div class="post-info-container">
 
-			                </div>
-			        	</div>  
+							<div class="post-info">
+
+				                <div class="post-title">
+				                	{{ title|truncate:40}}
+				                </div>
+
+				                {{ if category }}
+									{{ if modulecolor == "dark" }}
+			                		<hr style="background-color: rgba(255, 255, 255, 0.85);"/>
+									{{ else }}
+									<hr style="background-color: rgba(0, 0, 0, 1);"/>
+									{{ endif }}
+					                <div class="post-caption">
+						                <h6>{{ category }}</h6>
+						            </div>  
+						        {{ endif }}
+
+				            </div>
+
+						</div> 
+
 		        	</a>  
 
 		        </div>  
 
-		        <div class="push"></div>  
+		    	<div class="push"></div>  
 		    </div>  
 
-{{ endif }}
+	{{ endif }}
+{{ /entries:listing }}
 
-		{{ /entries:listing }}
 
-
-		{{ entries:pagination folder="work" limit="2" }}
-			{{ if next_page || previous_page }}
-				<div class="pagination clearfix">
-					{{ if next_page }}
-						<div class="older"><a href="{{ next_page }}">Older Posts</a></div>
-					{{ endif }}
-
-					{{ if previous_page }}
-						<div class="newer"><a href="{{ previous_page }}">Newer Posts</a></div>
-					{{ endif }}
-				</div>
+{{ entries:pagination folder="work" limit="30" }}
+	{{ if next_page || previous_page }}
+		<div class="pagination clearfix">
+			{{ if next_page }}
+				<div class="older"><a href="{{ next_page }}">Older Posts</a></div>
 			{{ endif }}
-		{{ /entries:pagination }}
+
+			{{ if previous_page }}
+				<div class="newer"><a href="{{ previous_page }}">Newer Posts</a></div>
+			{{ endif }}
+		</div>
+	{{ endif }}
+{{ /entries:pagination }}
 
 
 

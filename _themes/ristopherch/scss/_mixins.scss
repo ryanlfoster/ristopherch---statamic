@@ -38,8 +38,21 @@
 	-o-transition:$value .25s ease-in-out;
 }
 
+@mixin border-radius($value) {
+	-webkit-border-radius:$value;
+	-moz-border-radius:$value;
+	border-radius:$value;
+}
+
 @mixin rotate($value){
 	transform:rotate($value);
 	-ms-transform:rotate($value);
 	-webkit-transform:rotate($value);
 }
+
+@mixin translate($value){
+	transform:translate($value);
+	-ms-transform:translate($value);
+	-webkit-transform:translate($value);
+}
+

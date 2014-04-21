@@ -14,22 +14,23 @@ $( window ).load(function() {
 
 //Infinite Scroll
 
-$('.wrapper').infinitescroll({
-	navSelector  	: ".pagination",
-	nextSelector 	: ".pagination .older a:first",
-	itemSelector 	: ".post",
-	loading :
-	{
-		img: "_themes/ristopherch/img/loading.gif",
-	    msgText: ""
-	}
-},
-	function( newElements ) {
-		var $newElems = $( newElements );
-		msnry.appended( $newElems );
-		msnry.layout();		
-	}
-);
+// $('.wrapper').infinitescroll({
+// 	navSelector  	: ".pagination",
+// 	nextSelector 	: ".pagination .older a:first",
+// 	itemSelector 	: ".post",
+// 	loading :
+// 	{
+// 		img: "_themes/ristopherch/img/loading.gif",
+// 	    msgText: "",
+// 	    finishedMsg: ""
+// 	}
+// },
+// 	function( newElements ) {
+// 		var $newElems = $( newElements );
+// 		msnry.appended( $newElems );
+// 		msnry.layout();		
+// 	}
+// );
 
 
 
@@ -39,27 +40,37 @@ if (Modernizr.touch) {
 	var s = skrollr.init({
 	forceHeight: false
 	});
-
-	skrollr.menu.init(s, {
-	    //skrollr will smoothly animate to the new position using `animateTo`.
-	    animate: true,
-
-	    //The easing function to use.
-	    easing: 'quadratic',
-
-	    //Multiply your data-[offset] values so they match those set in skrollr.init
-	    scale: 2,
-
-	    //How long the animation should take in ms.
-	    duration: function(currentTop, targetTop) {
-	        //By default, the duration is hardcoded at 500ms.
-	        return 1500;
-
-	        //But you could calculate a value based on the current scroll position (`currentTop`) and the target scroll position (`targetTop`).
-	        //return Math.abs(currentTop - targetTop) * 10;
-	    },
-	});
 }  
+
+
+
+// scroll body to 0px on click
+		$('.info-wrapper-down').click(function () {
+			$('body,html').animate({
+				scrollTop: $(".wrapper").offset().top
+     }, 1500);
+			return false;
+		});
+
+
+//
+		$('.project-wrapper-down').click(function () {
+			$('body,html').animate({
+				scrollTop: $(".project-wrapper-bg").offset().top
+     }, 1500);
+			return false;
+		});
+
+
+
+//Video Intro
+
+if (Modernizr.touch) {  
+	$( ".videocontent" ).addClass( "remove" );
+} 
+else {
+}
+
 
 //iScroll
 

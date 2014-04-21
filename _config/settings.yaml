@@ -13,7 +13,7 @@
 ###########################################################################################
 
 # Enter your license key
-_license_key:
+_license_key: b4b95e9c-3c4a-4ddb-9e27-12f29c75d03e
 
 _language: en
 
@@ -21,7 +21,7 @@ _language: en
 _site_root: /
 
 # Name of your site
-_site_name: Another Awesome Statamic Site
+_site_name: Christopher Nieri — Not a porfolio site
 
 # Change the folder name for your content directory
 _content_root: _content

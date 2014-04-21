@@ -48,6 +48,8 @@ if (Config::get('enable_static_pipeline', true)) {
         $file_requested = implode($segments, '/');
         $file = Theme::getPath() . $file_requested;
 
+        $file = realpath($file);
+
         # Routes only if the file doesn't already exist (e.g. /assets/whatever.ext)
         if ( ! File::exists(array($file_requested, $file))) {
 
@@ -80,8 +82,16 @@ $app->get('/_add-ons/(:segments+)', function($segments = array()) use ($app) {
     // clean segments
     $segments = URL::sanitize($segments);
     $file_requested = implode($segments, '/');
+    
     $bundle_folder  = APP_PATH . "/core/bundles/" . $segments[0];
     $file = APP_PATH . "/core/bundles/" . $file_requested;
+
+    $file = realpath($file);
+    
+    if (strpos($file_requested, '../') !== false || File::getExtension($file) === 'php') {
+        $app->pass();
+        return;
+    }
 
     if (Folder::exists($bundle_folder)) {
         if (File::exists($file)) {

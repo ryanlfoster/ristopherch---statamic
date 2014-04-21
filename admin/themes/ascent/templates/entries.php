@@ -34,7 +34,7 @@
             <th><div class="header-inner"><?php echo Localization::fetch('title')?></div></th>
             <?php if ($type == 'date'): ?>
               <th><div class="header-inner"><?php echo Localization::fetch('date')?></div></th>
-            <?php elseif ($type == 'number'): ?>
+            <?php elseif ($type == 'number' || $type == 'numeric'): ?>
               <th><div class="header-inner"><?php echo Localization::fetch('number')?></div></th>
             <?php endif; ?>
             <th style="width:80px"><div class="header-inner"><?php echo Localization::fetch('status')?></div></th>

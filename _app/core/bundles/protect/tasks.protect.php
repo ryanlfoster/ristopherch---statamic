@@ -232,9 +232,9 @@ class Tasks_protect extends Tasks
             // grab add-on definition
             $method      = array_get($value, 'method', null);
             $comparison  = array_get($value, 'comparison', '==');
-            $value       = array_get($value, 'value', null);
             $parameters  = array_get($value, 'parameters', array());
             $error       = array_get($value, 'error', null);
+            $value       = array_get($value, 'value', null);
 
             // split method
             $method_parts = explode(':', $method, 2);

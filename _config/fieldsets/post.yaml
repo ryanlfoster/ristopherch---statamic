@@ -1,4 +1,7 @@
 fields:
+  subtitle:
+    display: Subtitle
+    type: text 
   category:
     display: Categories
     required: false
@@ -12,17 +15,32 @@ fields:
     #required: false
     #default:
     #type: tags
+  thumbnail:
+    display: Tile Thumbnail
+    type: file
+    allowed: [png, gif, jpg, jpeg]
+    destination: /assets/img/
   header_image:
     display: Header Image
     type: file
     allowed: [png, gif, jpg, jpeg]
-    destination: assets/img/blog
-  header_theme_colour:
+    destination: assets/img/
+  header_bg_colour:
+    display: Header Background Colour
+    type: color
+    show_alpha: true
+    preferred_format: rgb
+    palette:
+      - '#fff'
+      - '#ccc'
+      - '#999'
+  header_text_colour:
     display: Header Text Colour
-    type: radio
-    options:
-      - black
-      - white
+    type: color
+    palette:
+      - '#fff'
+      - '#ccc'
+      - '#999' 
   posttype:
     display: Post Type
     type: radio
@@ -34,10 +52,7 @@ fields:
     type: radio
     options:
       - light
-      - light-trans
       - dark
-      - dark-trans
-      - sunbather
   modulesize:
     display: Module Size
     type: select
@@ -49,4 +64,4 @@ fields:
       - m5
   content:
     type: redactor
-    image_dir: assets/img/
+    image_dir: /assets/img/
