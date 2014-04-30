@@ -20,6 +20,9 @@ fields:
     type: file
     allowed: [png, gif, jpg, jpeg]
     destination: /assets/img/
+  videothumbnail:
+    display: Video Thumbnail File Name
+    type: text
   header_image:
     display: Header Image
     type: file

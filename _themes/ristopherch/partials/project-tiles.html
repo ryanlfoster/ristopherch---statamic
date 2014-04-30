@@ -2,7 +2,7 @@
 
     <div class="grid-sizer"></div>
 
-		{{ entries:listing folder="work" sort_by="random" conditions="url:!{url}" paginate="true" limit="30"}}
+		{{ entries:listing folder="work" conditions="url:!{url}" paginate="true" limit="6"}}
 
 {{ if no_results }}
 {{ else }}
@@ -10,6 +10,21 @@
 		    <div class="post {{ modulesize }} {{ modulecolor }} {{ posttype }}">
 
 		        <div class="content" style="background-image:url('{{ thumbnail }}')">
+
+		        {{ if videothumbnail }}	
+
+		        <div class="videocontent">
+					<video class="video-js vjs-default-skin"
+					  controls preload="auto" width="auto" height="auto"
+					  data-setup='{"controls":false,"autoplay":true,"loop":"true"}'
+					  poster="{{ thumbnail }}">
+					 <source src="assets/video/{{ videothumbnail }}.mp4" type='video/mp4' />
+					</video>
+				</div>
+
+				{{ else }}
+				{{ endif}}
+
 
 		        	<a href="{{ url }}">
 						<div class="post-info-container">
@@ -26,9 +41,9 @@
 									{{ else }}
 									<hr style="background-color: rgba(0, 0, 0, 1);"/>
 									{{ endif }}
-					                <div class="post-caption">
+					                
 						                <h6>{{ category }}</h6>
-						            </div>  
+						             
 						        {{ endif }}
 
 				            </div>
@@ -39,6 +54,8 @@
 
 		        </div>  
 
+
+
 		    	<div class="push"></div>  
 		    </div>  
 
@@ -46,7 +63,7 @@
 {{ /entries:listing }}
 
 
-{{ entries:pagination folder="work" limit="30" }}
+{{ entries:pagination folder="work" limit="6" }}
 	{{ if next_page || previous_page }}
 		<div class="pagination clearfix">
 			{{ if next_page }}

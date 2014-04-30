@@ -12,25 +12,25 @@ $( window ).load(function() {
   msnry.layout();
 });
 
-//Infinite Scroll
+// Infinite Scroll
 
-// $('.wrapper').infinitescroll({
-// 	navSelector  	: ".pagination",
-// 	nextSelector 	: ".pagination .older a:first",
-// 	itemSelector 	: ".post",
-// 	loading :
-// 	{
-// 		img: "_themes/ristopherch/img/loading.gif",
-// 	    msgText: "",
-// 	    finishedMsg: ""
-// 	}
-// },
-// 	function( newElements ) {
-// 		var $newElems = $( newElements );
-// 		msnry.appended( $newElems );
-// 		msnry.layout();		
-// 	}
-// );
+$('.wrapper').infinitescroll({
+	navSelector  	: ".pagination",
+	nextSelector 	: ".pagination .older a:first",
+	itemSelector 	: ".post",
+	loading :
+	{
+		img: "_themes/ristopherch/img/loading.gif",
+	    msgText: "",
+	    finishedMsg: ""
+	}
+},
+	function( newElements ) {
+		var $newElems = $( newElements );
+		msnry.appended( $newElems );
+		msnry.layout();		
+	}
+);
 
 
 
@@ -61,6 +61,13 @@ if (Modernizr.touch) {
 			return false;
 		});
 
+//
+		$('a.to-top').click(function () {
+			$('body,html').animate({
+				scrollTop: $("body").offset().top
+     }, 1500);
+			return false;
+		});
 
 
 //Video Intro
